@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./assets/*.{js,ts,jsx,tsx,mdx}",
-    "./components/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/assets/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
+    "../../packages/ui/components/**/*.{js,ts,jsx,tsx}",
+    "../../packages/ui/assets/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -53,11 +58,6 @@ module.exports = {
 
       black: "#000000",
       white: "#FFFFFF",
-
-      gradient:
-        "linear-gradient(284deg, #C24BF5 5.83%, #FF1294 41.55%, #FC6D21 77.27%, #FFFE65 114.07%);",
-      gradient2:
-        "radial-gradient(83.88% 77.24% at 90.38% 105.65%, #FC6D21 0%, rgba(252, 109, 33, 0.00) 100%), radial-gradient(31.81% 70.81% at 80.38% 51.2%, #FF1294 0%, rgba(255, 18, 148, 0.00) 100%), radial-gradient(108.35% 142.7% at 1.94% 79.12%, #C24BF5 0%, rgba(194, 75, 245, 0.00) 100%), radial-gradient(83.19% 62.26% at 87.06% 12.18%, #FFFE65 0%, rgba(255, 254, 101, 0.00) 100%), linear-gradient(331deg, #C24BF5 10.03%, #FF1294 44.13%, #FC6D21 78.24%, #FFFE65 113.38%)",
 
       transparent: "transparent",
       current: "currentColor",
