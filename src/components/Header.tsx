@@ -1,5 +1,5 @@
 "use client";
-import { Logo } from "@/assets";
+import { Logo, Menu, User } from "@/assets";
 import { Button } from "@/components/Button";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -22,13 +22,7 @@ const Nav = ({ onClick, text }: PropsType) => {
         </p>
       </div>
       <div className="w-full flex">
-        <div
-          style={{
-            background:
-              "linear-gradient(281deg, #C24BF5 0%, #FF1294 33%, #FC6D21 66%, #FFFE65 100%)",
-          }}
-          className="h-0.5 w-0 transition-all group-hover:w-full"
-        />
+        <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r to-purple500 via-pink from-yellow transition-all" />
       </div>
     </div>
   );
@@ -37,8 +31,11 @@ const Nav = ({ onClick, text }: PropsType) => {
 function Header() {
   const router = useRouter();
   return (
-    <div className="w-full transition-all h-[64px] flex justify-center items-center px-[60px] border-b border-gray700 bg-white dark:bg-gray900">
+    <div className="w-full absolute top-0 transition-all h-[64px] flex justify-center items-center px-12 border-b border-gray200 dark:border-gray700 bg-white dark:bg-gray900">
       <div className="w-full max-w-[1400px] h-full flex justify-between items-center">
+        <div className="hidden sm:flex p-2 hover:rotate-90 transition-all cursor-pointer">
+          <Menu className="text-white dark:text-gray800" />
+        </div>
         <div className="flex h-full gap-12 items-center">
           <div
             className="flex items-center gap-1 cursor-pointer"
@@ -49,20 +46,23 @@ function Header() {
               Penner
             </p>
           </div>
-          <div className="flex items-center gap-4 h-full">
+          <div className="flex items-center gap-4 h-full sm:hidden">
             <Nav text="메인" onClick={() => router.push("/main")} />
             <Nav text="갤러리" onClick={() => router.push("/gallery")} />
             <Nav text="챌린지" onClick={() => router.push("/challenge")} />
             <Nav text="그룹" onClick={() => router.push("/group")} />
           </div>
         </div>
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 items-center sm:hidden">
           <Button kind="primary" fontSize="small">
             로그인
           </Button>
           <Button kind="white" fontSize="small">
             시작하기
           </Button>
+        </div>
+        <div className="hidden sm:flex p-2 cursor-pointer">
+          <User className="text-white dark:text-gray800" />
         </div>
       </div>
     </div>
