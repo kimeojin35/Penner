@@ -1,11 +1,12 @@
 import Image from "next/image";
-import Header from "./Header";
+import Header from "../components/Header";
 import App from "./App";
 export default function Home() {
   return (
     <>
-      <App />
-      <Header />
+      <div className="w-full h-screen flex justify-center items-center bg-white dark:bg-gray900 text-black dark:text-white">
+        Landing page
+      </div>
     </>
   );
 }
