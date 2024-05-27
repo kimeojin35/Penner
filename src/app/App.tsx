@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import useDarkMode from "./hooks/useDarkMode";
+import useDarkMode from "../hooks/useDarkMode";
 
 function App() {
   const [dark, toggleDarkMode] = useDarkMode();

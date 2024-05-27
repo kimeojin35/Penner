@@ -15,14 +15,14 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
       onClick={onClick}
       className={``}
     >
-      <g clip-path="url(#a)" filter="url(#b)">
+      <g clipPath="url(#a)" filter="url(#b)">
         <path
           fill="url(#c)"
           d="M32 20.81a10.86 10.86 0 0 1-1.308.079c-5.898 0-10.678-4.776-10.678-10.667 0-.761.08-1.504.231-2.22A12.666 12.666 0 0 0 20.013 8C13.38 8 8 13.373 8 20s5.379 12 12.014 12c6.362 0 11.57-4.94 11.986-11.19Z"
         />
         <path
           fill="url(#d)"
-          fill-opacity=".4"
+          fillOpacity=".4"
           d="M32 20.81a10.86 10.86 0 0 1-1.308.079c-5.898 0-10.678-4.776-10.678-10.667 0-.761.08-1.504.231-2.22A12.666 12.666 0 0 0 20.013 8C13.38 8 8 13.373 8 20s5.379 12 12.014 12c6.362 0 11.57-4.94 11.986-11.19Z"
         />
         <path
@@ -31,7 +31,7 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
         />
         <path
           fill="url(#e)"
-          fill-opacity=".1"
+          fillOpacity=".1"
           d="M30.692 20.889c.443 0 .88-.027 1.308-.08L20.245 8.002a10.697 10.697 0 0 0-.232 2.22c0 5.891 4.781 10.667 10.68 10.667Z"
         />
       </g>
@@ -44,10 +44,10 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
           y2="36.446"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#C24BF5" />
-          <stop offset=".33" stop-color="#FF1294" />
-          <stop offset=".66" stop-color="#FC6D21" />
-          <stop offset="1" stop-color="#FFFE65" />
+          <stop stopColor="#C24BF5" />
+          <stop offset=".33" stopColor="#FF1294" />
+          <stop offset=".66" stopColor="#FC6D21" />
+          <stop offset="1" stopColor="#FFFE65" />
         </linearGradient>
         <linearGradient
           id="e"
@@ -57,7 +57,7 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
           y2="14.232"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#fff" stop-opacity="0" />
+          <stop stopColor="#fff" stopOpacity="0" />
           <stop offset="1" />
         </linearGradient>
         <radialGradient
@@ -69,7 +69,7 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop />
-          <stop offset="1" stop-opacity="0" />
+          <stop offset="1" stopOpacity="0" />
         </radialGradient>
         <clipPath id="a">
           <path fill="#fff" d="M0 0h40v40H0z" />
@@ -80,10 +80,10 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
           height="40"
           x="0"
           y="2"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
