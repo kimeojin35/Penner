@@ -34,7 +34,7 @@ function Header() {
     <div className="w-full absolute top-0 transition-all h-[64px] flex justify-center items-center px-12 border-b border-gray200 dark:border-gray700 bg-white dark:bg-gray900">
       <div className="w-full max-w-[1400px] h-full flex justify-between items-center">
         <div className="hidden sm:flex p-2 hover:rotate-90 transition-all cursor-pointer">
-          <Menu className="text-white dark:text-gray800" />
+          <Menu className="dark:text-white text-gray800" />
         </div>
         <div className="flex h-full gap-12 items-center">
           <div
@@ -62,7 +62,7 @@ function Header() {
           </Button>
         </div>
         <div className="hidden sm:flex p-2 cursor-pointer">
-          <User className="text-white dark:text-gray800" />
+          <User className="dark:text-white text-gray800" />
         </div>
       </div>
     </div>

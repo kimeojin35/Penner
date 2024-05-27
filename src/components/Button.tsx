@@ -7,9 +7,7 @@ interface ButtonProps {
   disabled?: boolean;
   children?: ReactNode;
   fontSize?: keyof typeof FontSize;
-  onClick?: (
-    event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => void;
+  onClick?: () => void;
 }
 
 const ButtonColor = {
@@ -33,10 +31,9 @@ const ButtonColor = {
       "transition-all bg-gray100 text-gray800 hover:bg-gray200 active:bg-gray300",
     disabled: "bg-gray100 text-gray300",
   },
-  gradient: {
-    enabled:
-      "transition-all bg-gradient text-white hover:bg-gray200 active:bg-gray300",
-    disabled: "bg-gray100 text-gray300",
+  gray: {
+    enabled: "transition-all bg-gray700 hover:bg-gray600 text-white",
+    disabled: "",
   },
   danger: {
     enabled:
@@ -68,7 +65,7 @@ export const Button = ({
   disabled,
   children,
   fontSize,
-  onClick = () => {},
+  onClick,
 }: ButtonProps) => {
   const color = ButtonColor[kind][disabled ? "disabled" : "enabled"];
   const font = FontSize[fontSize ?? "large"];
