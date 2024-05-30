@@ -8,3 +8,4 @@ export * from "./Bell";
 export * from "./Star";
 export * from "./Bookmark";
 export * from "./Search";
+export * from "./Arrow_Right";
