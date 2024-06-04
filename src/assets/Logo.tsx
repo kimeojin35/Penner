@@ -13,7 +13,7 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
       fill="none"
       viewBox="0 0 40 40"
       onClick={onClick}
-      className={``}
+      className={`${onClick ? "cursor-pointer" : ""} ${className}`}
     >
       <g clipPath="url(#a)" filter="url(#b)">
         <path
