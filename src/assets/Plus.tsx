@@ -1,7 +1,7 @@
 interface PropsType {
   size?: number;
-  className?: string;
   onClick?: () => void;
+  className?: string;
 }
 
 export const Plus = ({ size = 24, onClick, className = "" }: PropsType) => {
@@ -19,7 +19,7 @@ export const Plus = ({ size = 24, onClick, className = "" }: PropsType) => {
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
-        stroke-width="1.5"
+        stroke-width="2"
         d="M6 12h6m0 0h6m-6 0v6m0-6V6"
       />
     </svg>

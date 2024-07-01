@@ -1,25 +1,26 @@
 interface PropsType {
   size?: number;
-  className?: string;
   onClick?: () => void;
+  className?: string;
 }
 
-export const User = ({ size = 24, onClick, className = "" }: PropsType) => {
+export const User = ({ size = 24, className = "", onClick }: PropsType) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
+      onClick={onClick}
+      className={`${onClick ? "cursor-pointer" : ""} ${className}`}
       fill="none"
       viewBox="0 0 24 24"
-      className={`${onClick ? "cursor-pointer" : ""} ${className}`}
     >
       <path
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="2"
-        d="M20 21c0-2.761-3.582-5-8-5s-8 2.239-8 5m8-8a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z"
+        d="M17.217 19.332A6.982 6.982 0 0 0 12 17c-2.073 0-3.935.9-5.217 2.332M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18Zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
       />
     </svg>
   );

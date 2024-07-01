@@ -1,25 +1,30 @@
 interface PropsType {
   size?: number;
-  className?: string;
   onClick?: () => void;
+  className?: string;
 }
 
-export const Menu = ({ size = 24, className = "", onClick }: PropsType) => {
+export const Chevron_Arrow = ({
+  size = 24,
+  onClick,
+  className = "",
+}: PropsType) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      className={`${onClick ? "cursor-pointer" : ""} ${className}`}
       fill="none"
       viewBox="0 0 24 24"
+      onClick={onClick}
+      className={`${onClick ? "cursor-pointer" : ""} ${className}`}
     >
       <path
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="2"
-        d="M5 17h14M5 12h14M5 7h14"
+        d="m17 16-4-4 4-4m-6 8-4-4 4-4"
       />
     </svg>
   );

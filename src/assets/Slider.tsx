@@ -1,14 +1,10 @@
 interface PropsType {
   size?: number;
-  className?: string;
   onClick?: () => void;
+  className?: string;
 }
 
-export const Arrow_Right = ({
-  size = 24,
-  className = "",
-  onClick,
-}: PropsType) => {
+export const Slider = ({ size = 24, onClick, className = "" }: PropsType) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,8 +16,11 @@ export const Arrow_Right = ({
       className={`${onClick ? "cursor-pointer" : ""} ${className}`}
     >
       <path
-        fill="currentColor"
-        d="M15.54 11.29 9.88 5.64a1 1 0 1 0-1.42 1.41l4.95 5L8.46 17a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.3 1 1 0 0 0 .71-.3l5.66-5.65a1 1 0 0 0 0-1.47Z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M14 15h7M3 15h2m0 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Zm15-6h1M3 9h7m6.5 2.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
       />
     </svg>
   );

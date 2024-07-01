@@ -1,10 +1,8 @@
 interface PropsType {
   size?: number;
-  onClick?: () => void;
-  className?: string;
 }
 
-export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
+export const Logo = ({ size = 40 }: PropsType) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,52 +10,50 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
       height={size}
       fill="none"
       viewBox="0 0 40 40"
-      onClick={onClick}
-      className={`${onClick ? "cursor-pointer" : ""} ${className}`}
     >
-      <g clipPath="url(#a)" filter="url(#b)">
+      <g clip-path="url(#a)" filter="url(#b)">
         <path
           fill="url(#c)"
-          d="M32 20.81a10.86 10.86 0 0 1-1.308.079c-5.898 0-10.678-4.776-10.678-10.667 0-.761.08-1.504.231-2.22A12.666 12.666 0 0 0 20.013 8C13.38 8 8 13.373 8 20s5.379 12 12.014 12c6.362 0 11.57-4.94 11.986-11.19Z"
+          d="M34 20.945c-.5.06-1.01.092-1.526.092-6.88 0-12.458-5.571-12.458-12.444 0-.889.093-1.755.27-2.59L20.016 6C12.275 6 6 12.268 6 20s6.275 14 14.016 14C27.439 34 33.514 28.236 34 20.945Z"
         />
         <path
           fill="url(#d)"
-          fillOpacity=".4"
-          d="M32 20.81a10.86 10.86 0 0 1-1.308.079c-5.898 0-10.678-4.776-10.678-10.667 0-.761.08-1.504.231-2.22A12.666 12.666 0 0 0 20.013 8C13.38 8 8 13.373 8 20s5.379 12 12.014 12c6.362 0 11.57-4.94 11.986-11.19Z"
+          fill-opacity=".4"
+          d="M34 20.945c-.5.06-1.01.092-1.526.092-6.88 0-12.458-5.571-12.458-12.444 0-.889.093-1.755.27-2.59L20.016 6C12.275 6 6 12.268 6 20s6.275 14 14.016 14C27.439 34 33.514 28.236 34 20.945Z"
         />
         <path
           fill="#fff"
-          d="M30.692 20.889c.443 0 .88-.027 1.308-.08L20.245 8.002a10.697 10.697 0 0 0-.232 2.22c0 5.891 4.781 10.667 10.68 10.667Z"
+          d="M32.474 21.035c.517 0 1.026-.032 1.526-.093L20.286 6c-.177.835-.27 1.702-.27 2.59 0 6.873 5.577 12.445 12.458 12.445Z"
         />
         <path
           fill="url(#e)"
-          fillOpacity=".1"
-          d="M30.692 20.889c.443 0 .88-.027 1.308-.08L20.245 8.002a10.697 10.697 0 0 0-.232 2.22c0 5.891 4.781 10.667 10.68 10.667Z"
+          fill-opacity=".1"
+          d="M32.474 21.035c.517 0 1.026-.032 1.526-.093L20.286 6c-.177.835-.27 1.702-.27 2.59 0 6.873 5.577 12.445 12.458 12.445Z"
         />
       </g>
       <defs>
         <linearGradient
           id="c"
           x1="20"
-          x2="24.897"
-          y1="8"
-          y2="36.446"
+          x2="25.713"
+          y1="6"
+          y2="39.187"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#C24BF5" />
-          <stop offset=".33" stopColor="#FF1294" />
-          <stop offset=".66" stopColor="#FC6D21" />
-          <stop offset="1" stopColor="#FFFE65" />
+          <stop stop-color="#C24BF5" />
+          <stop offset=".33" stop-color="#FF1294" />
+          <stop offset=".66" stop-color="#FC6D21" />
+          <stop offset="1" stop-color="#FFFE65" />
         </linearGradient>
         <linearGradient
           id="e"
-          x1="22.906"
-          x2="26.226"
-          y1="17.555"
-          y2="14.232"
+          x1="23.39"
+          x2="27.263"
+          y1="17.146"
+          y2="13.268"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#fff" stopOpacity="0" />
+          <stop stop-color="#fff" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <radialGradient
@@ -65,38 +61,41 @@ export const Logo = ({ size = 24, onClick, className = "" }: PropsType) => {
           cx="0"
           cy="0"
           r="1"
-          gradientTransform="matrix(8.74278 9.55456 -9.54482 8.73387 26.243 14.444)"
+          gradientTransform="matrix(10.19992 11.147 -11.13563 10.18953 27.283 13.518)"
           gradientUnits="userSpaceOnUse"
         >
           <stop />
-          <stop offset="1" stopOpacity="0" />
+          <stop offset="1" stop-opacity="0" />
         </radialGradient>
         <clipPath id="a">
           <path fill="#fff" d="M0 0h40v40H0z" />
         </clipPath>
         <filter
           id="b"
-          width="40"
-          height="40"
-          x="0"
-          y="2"
-          colorInterpolationFilters="sRGB"
+          width="46.667"
+          height="46.667"
+          x="-3.333"
+          y="-1"
+          color-interpolation-filters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
           />
-          <feOffset dy="2" />
-          <feGaussianBlur stdDeviation="4" />
+          <feOffset dy="2.333" />
+          <feGaussianBlur stdDeviation="4.667" />
           <feComposite in2="hardAlpha" operator="out" />
           <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
-          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_130_7" />
+          <feBlend
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_630_5202"
+          />
           <feBlend
             in="SourceGraphic"
-            in2="effect1_dropShadow_130_7"
+            in2="effect1_dropShadow_630_5202"
             result="shape"
           />
         </filter>

@@ -1,10 +1,10 @@
 interface PropsType {
   size?: number;
-  className?: string;
   onClick?: () => void;
+  className?: string;
 }
 
-export const Search = ({ size = 24, className = "", onClick }: PropsType) => {
+export const Search = ({ size = 24, onClick, className = "" }: PropsType) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
