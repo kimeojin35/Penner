@@ -12,3 +12,4 @@ export * from "./Search";
 export * from "./Slider";
 export * from "./User";
 export * from "./Wavy_Check";
+export * from "./Check";
