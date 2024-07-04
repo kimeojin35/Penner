@@ -13,3 +13,4 @@ export * from "./Slider";
 export * from "./User";
 export * from "./Wavy_Check";
 export * from "./Check";
+export * from "./More";
