@@ -13,9 +13,9 @@ export const Arrow = ({
 }: PropsType) => {
   const rotate = {
     right: "rotate-[0deg]",
-    top: "rotate-[90deg]",
+    bottom: "rotate-[90deg]",
     left: "rotate-[180deg]",
-    bottom: "rotate-[270deg]",
+    top: "rotate-[270deg]",
   };
   return (
     <svg
@@ -33,7 +33,6 @@ export const Arrow = ({
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
-        stroke-opacity=".2"
         stroke-width="2"
         d="m9 19 7-7-7-7"
       />

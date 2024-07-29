@@ -14,3 +14,6 @@ export * from "./User";
 export * from "./Wavy_Check";
 export * from "./Check";
 export * from "./More";
+export * from "./Discord";
+export * from "./Instagram";
+export * from "./Github";
