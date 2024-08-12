@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "run vercel-deploy",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "serve": ""
+    "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
