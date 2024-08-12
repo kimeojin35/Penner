@@ -3,10 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import QueryProvider from "@/utils/query/Provider";
 import ReduxProvider from "@/utils/store/Provider";
-import Navbar from "@/components/Navbar";
 
 import App from "./App";
-import { Footer } from "@/components";
+import { Footer, Navbar } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 

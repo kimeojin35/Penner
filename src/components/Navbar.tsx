@@ -14,7 +14,7 @@ import {
 } from "@/assets";
 import { Button } from ".";
 
-function Navbar() {
+export function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
   const [click, setClick] = useState<number>(0);
@@ -108,5 +108,3 @@ function Navbar() {
     </>
   );
 }
-
-export default Navbar;

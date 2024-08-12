@@ -1,4 +1,4 @@
-import { Arrow, Discord, Github, Instagram, Logo } from "@/assets";
+import { Discord, Github, Instagram, Logo } from "@/assets";
 import React from "react";
 
 export const Footer = () => {
@@ -33,8 +33,9 @@ export const Footer = () => {
               <p className="text-white text-bold32">Penner</p>
             </div>
             <div className="flex gap-2">
-              {link.map(({ icon, url }) => (
+              {link.map(({ icon, url }, index) => (
                 <a
+                  key={index}
                   type="button"
                   href={`${url}`}
                   className="flex p-1 text-gray500 hover:text-white transition-all cursor-pointer"
@@ -45,11 +46,16 @@ export const Footer = () => {
             </div>
           </div>
           <div className="flex w-full justify-end">
-            {details.map(({ title, content }) => (
-              <div className="flex flex-col w-full max-w-[230px] gap-2">
+            {details.map(({ title, content }, index) => (
+              <div
+                key={index}
+                className="flex flex-col w-full max-w-[230px] gap-2"
+              >
                 <p className="text-white text-semibold16">{title}</p>
-                {content.map((text) => (
-                  <p className="text-gray500 text-medium16">{text}</p>
+                {content.map((text, idx) => (
+                  <p key={idx} className="text-gray500 text-medium16">
+                    {text}
+                  </p>
                 ))}
               </div>
             ))}
@@ -58,8 +64,11 @@ export const Footer = () => {
         <div className="flex flex-col gap-4 w-full">
           <div className="flex gap-5 w-full items-center py-4 border-b border-b-gray800">
             <div className="flex items-center relative w-full">
-              {info.map(({ title, content }) => (
-                <div className="flex flex-col gap-2 max-w-[230px] w-full">
+              {info.map(({ title, content }, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col gap-2 max-w-[230px] w-full"
+                >
                   <p className="text-medium12 text-gray500">{title}</p>
                   <p className="text-medium14 text-white">{content}</p>
                 </div>
@@ -78,7 +87,3 @@ export const Footer = () => {
     </div>
   );
 };
-
-// <div className="w-12 z-10 left-0 bottom-4 absolute h-12 rounded-full bg-gray900 flex justify-center items-center">
-// <Arrow direction="top" className="text-white" />
-// </div>

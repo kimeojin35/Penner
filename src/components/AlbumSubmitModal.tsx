@@ -11,13 +11,10 @@ export const AlbumSubmitModal = () => {
   const [inputValue, setInputValue] = useState<string>("");
 
   useEffect(() => {
-    filterInputValue();
-  }, [inputValue]);
-
-  const filterInputValue = () => {
     const filtered = list.filter((i) => i.includes(inputValue));
     setValueFiltere(filtered);
-  };
+  }, [inputValue]);
+
   return (
     <div className="rounded-2xl overflow-hidden z-20 absolute left-0 bottom-16 w-[340px] h-[428px] flex gap-3 flex-col shadow-md bg-white dark:bg-gray900 dark:shadow-gray800">
       <div className="flex w-full px-2 py-1 border-b dark:border-gray800 border-gray100">
