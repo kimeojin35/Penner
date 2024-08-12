@@ -3,8 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import QueryProvider from "@/utils/query/Provider";
 import ReduxProvider from "@/utils/store/Provider";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
+
 import App from "./App";
+import { Footer } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,13 +24,18 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className}  className="bg-gray50 dark:bg-gray950"`}
+      >
         <QueryProvider>
           <ReduxProvider>
-            <Header />
-            {auth}
-            {children}
-            <App />
+            <div className="bg-gray50 dark:bg-gray950 min-h-screen h-full">
+              <Navbar />
+              {auth}
+              {children}
+              <App />
+            </div>
+            <Footer />
           </ReduxProvider>
         </QueryProvider>
       </body>
