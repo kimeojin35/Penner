@@ -12,6 +12,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     colors: {
+      gray950: "#09090B",
       gray900: "#18181B",
       gray800: "#27272A",
       gray700: "#3F3F46",
@@ -45,133 +46,131 @@ module.exports = {
       green100: "#DCFCE7",
       green50: "#F0FDF4",
 
-      purple900: "#621778",
-      purple800: "#741593",
-      purple700: "#8B16B5",
-      purple600: "#A41FDA",
-      purple500: "#C24CF6",
-      purple400: "#D474FE",
-      purple300: "#E3A8FF",
-      purple200: "#EDCEFF",
-      purple100: "#F6E7FF",
-      purple50: "#FBF4FF",
+      pink900: "#98034D",
+      pink800: "#B8005A",
+      pink700: "#DF006C",
+      pink600: "#FF1493",
+      pink500: "#FF27AE",
+      pink400: "#FF58C7",
+      pink300: "#FF98DF",
+      pink200: "#FFC6EE",
+      pink100: "#FFE3F7",
+      pink50: "#FFF0F9",
 
       black: "#000000",
       white: "#FFFFFF",
-      pink: "#FF1294",
-      yellow: "#FFFE65",
 
       transparent: "transparent",
       current: "currentColor",
     },
 
     fontSize: {
-      head48Bold: [
+      bold48: [
         "48px",
         {
           fontWeight: 700,
           lineHeight: "58px",
         },
       ],
-      head40Bold: [
+      bold40: [
         "40px",
         {
           fontWeight: 700,
           lineHeight: "48px",
         },
       ],
-      header36Bold: [
+      bold36: [
         "36px",
         {
           fontWeight: 700,
           lineHeight: "44px",
         },
       ],
-      header32Bold: [
+      bold32: [
         "32px",
         {
           fontWeight: 700,
           lineHeight: "38px",
         },
       ],
-      title28Medium: [
+      medium28: [
         "28px",
         {
           fontWeight: 500,
           lineHeight: "34px",
         },
       ],
-      title24Medium: [
+      medium24: [
         "24px",
         {
           fontWeight: 500,
           lineHeight: "28px",
         },
       ],
-      title24Bold: [
+      bold24: [
         "24px",
         {
           fontWeight: 700,
           lineHeight: "28px",
         },
       ],
-      title20Medium: [
+      medium20: [
         "20px",
         {
           fontWeight: 500,
           lineHeight: "24px",
         },
       ],
-      title20Bold: [
+      semibold20: [
         "20px",
         {
-          fontWeight: 700,
+          fontWeight: 600,
           lineHeight: "24px",
         },
       ],
-      details18Medium: [
+      medium18: [
         "18px",
         {
           fontWeight: 500,
           lineHeight: "22px",
         },
       ],
-      details18Bold: [
+      semibold18: [
         "18px",
         {
-          fontWeight: 700,
+          fontWeight: 600,
           lineHeight: "22px",
         },
       ],
-      details16Medium: [
+      medium16: [
         "16px",
         {
           fontWeight: 500,
           lineHeight: "20px",
         },
       ],
-      details16Bold: [
+      semibold16: [
         "16px",
         {
-          fontWeight: 700,
+          fontWeight: 600,
           lineHeight: "20px",
         },
       ],
-      details14Medium: [
+      medium14: [
         "14px",
         {
           fontWeight: 500,
           lineHeight: "16px",
         },
       ],
-      details14Bold: [
+      bold14: [
         "14px",
         {
           fontWeight: 700,
           lineHeight: "16px",
         },
       ],
-      bodyTiny: [
+      medium12: [
         "12px",
         {
           fontWeight: 500,
@@ -184,6 +183,15 @@ module.exports = {
       sm: { max: "719px" },
       md: { min: "720px", max: "1419px" },
       lg: { min: "1420px" },
+    },
+    keyframes: {
+      bouncing: {
+        "0%, 100%": { transform: "scale(1)" },
+        "50%": { transform: "scale(1.25)" },
+      },
+    },
+    animation: {
+      bouncing: "bouncing 0.5s ease-in-out",
     },
   },
   plugins: [],
