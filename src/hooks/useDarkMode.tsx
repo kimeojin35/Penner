@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 const useDarkMode = (): [boolean, () => void] => {
   const localStorageChecker = (): boolean => {
+    if (typeof window === "undefined" || !window.localStorage) return false;
+
     if (!localStorage.theme) return false;
     return localStorage.theme === "dark" ? true : false;
   };
@@ -23,9 +25,10 @@ const useDarkMode = (): [boolean, () => void] => {
 
   useEffect(() => {
     if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      typeof window !== "undefined" &&
+      (localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches))
     ) {
       document.documentElement.classList.add("dark");
     } else {

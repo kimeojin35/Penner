@@ -21,9 +21,9 @@ export const Chevron_Arrow = ({
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="m17 16-4-4 4-4m-6 8-4-4 4-4"
       />
     </svg>

@@ -17,9 +17,9 @@ export const More = ({ size = 24, className = "", onClick }: PropsType) => {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M18 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
       />
     </svg>

@@ -28,16 +28,16 @@ export function Navbar() {
     { icon: Bell, route: "/notifications" },
   ];
 
-  const [browserHeight, setBrowserHeight] = useState<number>(
-    window.innerHeight
-  );
-
-  const updateBrowserHeight = () => {
-    setBrowserHeight(window.innerHeight);
-  };
+  const [browserHeight, setBrowserHeight] = useState<number>(0);
 
   useEffect(() => {
+    const updateBrowserHeight = () => {
+      setBrowserHeight(window.innerHeight);
+    };
+
+    updateBrowserHeight();
     window.addEventListener("resize", updateBrowserHeight);
+
     return () => window.removeEventListener("resize", updateBrowserHeight);
   }, []);
 
