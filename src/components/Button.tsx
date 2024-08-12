@@ -1,84 +1,38 @@
-import { MouseEvent, ReactNode } from "react";
+"use client";
+import useDarkMode from "@/hooks/useDarkMode";
+import React, { useState } from "react";
 
 interface ButtonProps {
   className?: string;
-  kind?: keyof typeof ButtonColor;
-  icon?: ReactNode;
-  disabled?: boolean;
-  children?: ReactNode;
-  fontSize?: keyof typeof FontSize;
+  children?: React.ReactNode;
   onClick?: () => void;
+  clicked?: boolean;
 }
 
-const ButtonColor = {
-  primary: {
-    enabled:
-      "transition-all bg-gray900 text-white hover:bg-gray900 active:bg-black",
-    disabled: "bg-gray400 text-gray200",
-  },
-  primary2: {
-    enabled:
-      "transition-all bg-white text-gray800 hover:bg-gray50 active:bg-gray100 border border-gray300",
-    disabled: "bg-gray100 text-gray300",
-  },
-  white: {
-    enabled:
-      "transition-all bg-white text-gray800 hover:bg-gray50 active:bg-gray100",
-    disabled: "bg-transparent text-gray200",
-  },
-  silver: {
-    enabled:
-      "transition-all bg-gray100 text-gray800 hover:bg-gray200 active:bg-gray300",
-    disabled: "bg-gray100 text-gray300",
-  },
-  gray: {
-    enabled: "transition-all bg-gray700 hover:bg-gray600 text-white",
-    disabled: "",
-  },
-  danger: {
-    enabled:
-      "transition-all bg-transparent text-red500 hover:bg-red600 active:bg-red700",
-    disabled: "bg-gray400 text-gray200",
-  },
-  danger2: {
-    enabled:
-      "transition-all bg-red50 text-red500 hover:bg-red100 hover:text-red600 active:bg-red200",
-    disabled: "bg-gray100 text-gray300",
-  },
-  danger3: {
-    enabled:
-      "transition-all bg-red500 text-white hover:bg-red600 hover:text-white active:bg-red700",
-    disabled: "bg-gray800 text-gray600",
-  },
-};
-
-const FontSize = {
-  large: "text-title20Medium",
-  medium: "text-details16Medium",
-  small: "text-details14Medium",
-};
-
 export const Button = ({
-  className,
-  kind = "primary",
-  icon,
-  disabled,
+  className = "",
   children,
-  fontSize,
   onClick,
+  clicked,
 }: ButtonProps) => {
-  const color = ButtonColor[kind][disabled ? "disabled" : "enabled"];
-  const font = FontSize[fontSize ?? "large"];
+  const [dark, toggleDarkMode] = useDarkMode();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const defaultBackground = "transparent";
+  const hoverBackground =
+    "radial-gradient(80.22% 80.22% at 72.92% 80.21%, #FD863A 0%, rgba(253, 134, 58, 0.00) 100%), #FF27AE";
+
   return (
-    <button
-      className={`select-none w-fit px-3 py-2 gap-2 flex items-center justify-center ${
-        children ? "rounded-lg" : "rounded-full"
-      } ${color} ${className ?? ""}`}
+    <div
       onClick={onClick}
-      disabled={disabled}
+      className={`p-3 ${className} rounded-full flex transition-all border border-gray200 hover:bg-gray50 dark:border-gray800 dark:hover:bg-gray900`}
+      style={{
+        background: clicked ? defaultBackground : hoverBackground,
+      }}
+      // onMouseEnter={() => setIsHovered(true)}
+      // onMouseLeave={() => setIsHovered(false)}
     >
-      {icon}
-      {children && <span className={`${font}`}>{children}</span>}
-    </button>
+      {children}
+    </div>
   );
 };
