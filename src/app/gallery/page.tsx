@@ -26,7 +26,7 @@ function Gallery() {
 
   return (
     <div className="flex justify-center pb-40 w-full bg-gray50 dark:bg-gray950">
-      <div className="flex flex-col gap-10 px-6 py-8 w-[1292px]">
+      <div className="flex flex-col gap-10 py-8 pl-32 pr-6 w-[1292px]">
         <div className="w-full flex justify-between items-end pt-[116px]">
           <p
             onClick={() => {
