@@ -53,7 +53,7 @@ export function Navbar() {
       {!visibleNavbar && (
         <div className="box-border fixed z-50 w-20 h-screen peer top-6" />
       )}
-      <div
+      <header
         style={{
           height: `calc(${browserHeight}px - 48px)`,
         }}
@@ -104,7 +104,7 @@ export function Navbar() {
             } text-gray400 dark:text-gray600 transition-all`}
           />
         </div>
-      </div>
+      </header>
     </>
   );
 }
