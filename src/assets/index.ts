@@ -17,3 +17,4 @@ export * from "./More";
 export * from "./Discord";
 export * from "./Instagram";
 export * from "./Github";
+export * from "./Show";

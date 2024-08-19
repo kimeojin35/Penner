@@ -9,3 +9,4 @@ export * from "./AlbumList";
 export * from "./AlbumSubmitModal";
 export * from "./MasonryLayout";
 export * from "./Footer";
+export * from "./Input";
