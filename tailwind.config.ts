@@ -135,10 +135,10 @@ module.exports = {
           lineHeight: "22px",
         },
       ],
-      semibold18: [
+      bold18: [
         "18px",
         {
-          fontWeight: 600,
+          fontWeight: 700,
           lineHeight: "22px",
         },
       ],
