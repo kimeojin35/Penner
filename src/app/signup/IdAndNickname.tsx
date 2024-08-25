@@ -5,13 +5,17 @@ import { createClient } from "@/utils/supabase/server";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-function IdAndNickname() {
+interface SignupProps {
+  onNext?: () => void;
+  onBack?: () => void;
+}
+
+function IdAndNickname({ onNext, onBack }: SignupProps) {
   const router = useRouter();
   return (
-    <div className="flex items-center justify-center w-full py-10 min-h-screen bg-gray50 dark:bg-gray950">
       <div className="w-[540px] h-[700px] flex rounded-3xl flex-col gap-10 p-12 bg-white border border-gray200">
         <div
-          onClick={() => router.back()}
+          onClick={onBack}
           className="flex p-3 w-fit rounded-md border border-gray200 hover:bg-gray50 cursor-pointer"
         >
           <Arrow size={20} direction="left" className="text-gray600" />
@@ -30,9 +34,8 @@ function IdAndNickname() {
             </div>
           </div>
         </div>
-        <Buttons onClick={() => router.push("/my")} text="다음" />
+        <Buttons onClick={onNext} text="다음" />
       </div>
-    </div>
   );
 }
 
