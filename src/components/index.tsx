@@ -10,3 +10,4 @@ export * from "./AlbumSubmitModal";
 export * from "./MasonryLayout";
 export * from "./Footer";
 export * from "./Input";
+export * from "./Buttons";
