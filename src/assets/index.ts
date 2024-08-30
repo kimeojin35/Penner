@@ -18,3 +18,4 @@ export * from "./Discord";
 export * from "./Instagram";
 export * from "./Github";
 export * from "./Show";
+export * from "./Hide";
