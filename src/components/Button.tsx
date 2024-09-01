@@ -25,7 +25,7 @@ export const Button = ({
   return (
     <div
       onClick={onClick}
-      className={`p-3 ${className} rounded-full flex transition-all border border-gray200 hover:bg-gray50 dark:border-gray800 dark:hover:bg-gray900`}
+      className={`p-3 ${className} cursor-pointer rounded-full flex transition-all border border-gray200 hover:bg-gray50 dark:border-gray800 dark:hover:bg-gray900`}
       style={{
         background: clicked ? defaultBackground : hoverBackground,
       }}
