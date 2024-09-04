@@ -1,7 +1,10 @@
+"use client";
 import { Discord, Github, Instagram, Logo } from "@/assets";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export const Footer = () => {
+  const router = useRouter();
   const details = [
     { title: "개발자", content: ["김어진"] },
     { title: "기술 스택", content: ["Next.js", "TailwindCSS", "Recoil"] },
@@ -24,7 +27,7 @@ export const Footer = () => {
     { icon: <Github size={28} />, url: "https://github.com/kimeojin35" },
   ];
   return (
-    <div className="w-full pt-6 bg-gray950 flex justify-center items-center px-6">
+    <div className="w-full pt-6 bg-gray950 flex justify-center items-center pr-6 pl-28">
       <div className="w-full max-w-[1440px] flex flex-col gap-24 p-6">
         <div className="w-full justify-between flex gap-16 md:flex-col">
           <div className="flex flex-col gap-5">
@@ -74,7 +77,10 @@ export const Footer = () => {
                 </div>
               ))}
             </div>
-            <button className="rounded-full hover:bg-gray200 bg-white text-gray950 text-medium16 px-6 py-3 whitespace-nowrap">
+            <button
+              onClick={() => router.push("/signup")}
+              className="rounded-full hover:bg-gray200 bg-white text-gray950 text-medium16 px-6 py-3 whitespace-nowrap"
+            >
               회원가입
             </button>
           </div>
