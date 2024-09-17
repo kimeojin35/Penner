@@ -41,7 +41,7 @@ export const ImageModal = ({ visible, onClose }: ModalPropsType) => {
                 onClick={() => router.push("/my")}
                 className="flex flex-col gap-0.5"
               >
-                <p className="text-black cursor-pointer text-semibold18 dark:text-white">
+                <p className="text-black cursor-pointer text-bold18 dark:text-white">
                   햄스터
                 </p>
                 <p className="text-gray500 text-medium14 dark:text-gray500">
