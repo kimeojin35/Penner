@@ -8,13 +8,17 @@ import {
   Home,
   Image,
   Logo,
+  Moon,
   Plus,
+  Sun,
   User,
   Wavy_Check,
 } from "@/assets";
 import { Button } from ".";
+import useDarkMode from "@/hooks/useDarkMode";
 
 export function Navbar() {
+  const [dark, toggleDarkMode] = useDarkMode();
   const router = useRouter();
   const pathname = usePathname();
   const [click, setClick] = useState<number>(0);
@@ -65,7 +69,7 @@ export function Navbar() {
           <Logo />
           <div className="relative flex flex-col items-center w-full gap-1">
             <div
-              className="w-0.5 h-6 bg-gray900 dark:bg-white absolute left-0 transition-all"
+              className="w-0.5 h-6 bg-pink500 dark:bg-white absolute left-0 transition-all"
               style={{ top: `${click * 60 + 16}px` }}
             />
             {navList.map(({ icon: Icon, route }, index) => (
@@ -77,9 +81,9 @@ export function Navbar() {
                 }}
                 className={`flex ${
                   click === index
-                    ? "text-gray900 dark:text-white"
+                    ? "text-pink600 dark:text-white"
                     : "text-gray500"
-                } transition-all hover:text-gray900 hover:dark:text-white justify-center items-center px-7 py-4`}
+                } transition-all cursor-pointer hover:text-pink600 hover:dark:text-white justify-center items-center px-7 py-4`}
               >
                 <Icon clicked={click === index} />
               </div>
@@ -87,7 +91,7 @@ export function Navbar() {
             <div className="h-[1px] w-9 bg-gray200 dark:bg-gray800" />
             <div
               onClick={() => router.push("/my")}
-              className="flex items-center justify-center w-full py-4"
+              className="flex items-center cursor-pointer justify-center w-full py-4"
             >
               <User className="text-gray500" />
             </div>
@@ -97,6 +101,16 @@ export function Navbar() {
           <Button>
             <Plus className="text-white" />
           </Button>
+          <div
+            onClick={toggleDarkMode}
+            className="flex items-center cursor-pointer justify-center w-full py-4"
+          >
+            {dark ? (
+              <Moon className="text-gray500" />
+            ) : (
+              <Sun className="text-gray500" />
+            )}
+          </div>
           <Chevron_Arrow
             onClick={() => setVisibleNavbar(!visibleNavbar)}
             className={`${
