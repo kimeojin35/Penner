@@ -1,6 +1,12 @@
 // signup-form-schema.tsx
 import { z } from "zod";
 
+export const emailSchema = z.object({
+  email: z.string().email({
+    message: "이메일 형식이 잘못되었습니다",
+  }),
+});
+
 export const signUpFormSchema = z
   .object({
     id: z
@@ -14,9 +20,6 @@ export const signUpFormSchema = z
       .string()
       .min(2, { message: "닉네임은 최소 2자 이상이어야 합니다." })
       .max(20, { message: "닉네임은 최대 20자 이하여야 합니다." }),
-    email: z.string().email({
-      message: "이메일 형식이 잘못되었습니다",
-    }),
     emailCode: z
       .string()
       .length(6, { message: "인증 코드는 6자리 숫자여야 합니다." })
@@ -41,7 +44,6 @@ export type SignUpFormValues = z.infer<typeof signUpFormSchema>;
 export const defaultValues: SignUpFormValues = {
   id: "",
   nickname: "",
-  email: "",
   emailCode: "",
   password: "",
   passwordCheck: "",
