@@ -19,3 +19,5 @@ export * from "./Instagram";
 export * from "./Github";
 export * from "./Show";
 export * from "./Hide";
+export * from "./Sun";
+export * from "./Moon";
