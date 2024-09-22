@@ -6,6 +6,7 @@ interface PropsType {
   placeholder?: string;
   password?: boolean;
   title?: string;
+  value?: string;
   children?: React.ReactNode;
   onChange?: (value: any) => void;
 }
@@ -14,6 +15,7 @@ export const Input = ({
   placeholder,
   password,
   title,
+  value,
   children,
   onChange,
 }: PropsType) => {
@@ -23,6 +25,7 @@ export const Input = ({
       <p className="text-medium16">{title}</p>
       <div className="flex w-full items-center rounded-lg border border-gray300">
         <input
+          value={value}
           onChange={(e) => onChange && onChange(e.target.value)}
           type={password && !click ? "password" : "text"}
           placeholder={placeholder}
