@@ -6,17 +6,23 @@ import styled from "styled-components";
 interface ImagePropsType {
   height?: string;
   title?: string;
+  userName?: string;
   onClick?: () => void;
 }
 
-export const ImageCard = ({ height, title, onClick }: ImagePropsType) => {
+export const ImageCard = ({
+  height,
+  title,
+  onClick,
+  userName = "김어진",
+}: ImagePropsType) => {
   const [clickLike, setClickLike] = useState<boolean>(false);
   return (
     <div className="flex flex-col gap-1.5 mb-7 z-0 break-inside-avoid-column">
       <div className="relative group">
         <div
           onClick={onClick}
-          className={`bg-gray200 group relative rounded-xl w-[236px] ${height}`}
+          className={`bg-gray200 group relative rounded-xl w-full max-w-[400px] ${height}`}
         />
         <div
           onClick={() => setClickLike(!clickLike)}

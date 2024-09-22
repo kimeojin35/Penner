@@ -25,7 +25,7 @@ export const MasonryLayout = ({
   return (
     <div className="flex w-full justify-center">
       {imageFilter.length > 0 ? (
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-5 gap-4 relative transition-all">
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-5 gap-4 relative transition-all w-full">
           {imageFilter.map((h, index) => (
             <ImageCard
               key={index}
