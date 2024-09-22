@@ -25,8 +25,8 @@ function Gallery() {
   const [searchValue, setSearchValue] = useState<string>("");
 
   return (
-    <div className="flex justify-center pb-40 w-full bg-gray50 dark:bg-gray950">
-      <div className="flex flex-col gap-10 py-8 pl-32 pr-6 w-[1292px]">
+    <div className="flex justify-center pb-40 w-full bg-gray50 dark:bg-gray950 pr-6 pl-32">
+      <div className="flex flex-col gap-10 py-6 w-full max-w-[1200px]">
         <div className="w-full flex justify-between items-end pt-[116px]">
           <p
             onClick={() => {
@@ -38,24 +38,21 @@ function Gallery() {
             갤러리
           </p>
           <div className="flex justify-end">
-            <div
-              className={`flex border-b transition-all ${
-                isInputFocused
-                  ? "border-black dark:border-white"
-                  : "border-gray200 dark:border-gray700"
-              } ${visibleSearch ? "w-72" : "w-0"}`}
-            >
-              <input
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                className="w-full px-1 py-2.5 text-medium18 text-black dark:text-white border border-gray200 placeholder:text-gray300 dark:placeholder:text-gray600"
-                placeholder="검색어를 입력해주세요"
-                onFocus={() => setIsInputFocused(true)}
-                onBlur={() => setIsInputFocused(false)}
-              />
-            </div>
-
-            <div className="w-[42px] h-[42px] flex justify-center items-center">
+            <div className="p-3.5 flex items-center rounded-full bg-white dark:bg-gray900 border border-gray200 dark:border-gray800">
+              <div
+                className={`flex transition-all ${
+                  visibleSearch ? "w-72" : "w-0"
+                }`}
+              >
+                <input
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  className="w-full pl-2 text-medium18 text-black dark:text-white placeholder:text-gray300 dark:placeholder:text-gray600"
+                  placeholder="검색어를 입력해주세요"
+                  onFocus={() => setIsInputFocused(true)}
+                  onBlur={() => setIsInputFocused(false)}
+                />
+              </div>
               <Search
                 onClick={() => setVisibleSearch(!visibleSearch)}
                 className="text-gray800 dark:text-white"
@@ -78,7 +75,6 @@ function Gallery() {
             ))}
           </div>
         </div>
-        {/*내인생 */}
         <MasonryLayout searchState={searchValue} ImageCardArr={randomHeight} />
       </div>
     </div>
