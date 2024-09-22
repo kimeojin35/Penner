@@ -23,7 +23,7 @@ function My() {
 
   return (
     <div className="flex justify-center w-full px-6 bg-gray50 dark:bg-gray950">
-      <div className="flex flex-col gap-16 px-6 py-8 w-[1292px]">
+      <div className="flex flex-col gap-16 px-6 py-8 w-[1200px]">
         <UserProfile />
         <div className="flex flex-col gap-10">
           <div className="flex items-center justify-between w-full border-b border-gray200 dark:border-gray800">
