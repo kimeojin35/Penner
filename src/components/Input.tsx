@@ -8,7 +8,9 @@ interface PropsType {
   title?: string;
   value?: string;
   children?: React.ReactNode;
-  onChange?: (value: any) => void;
+  message?: string;
+  onBlur?: () => void;
+  onChangeText?: (value: any) => void;
 }
 
 export const Input = ({
@@ -17,16 +19,19 @@ export const Input = ({
   title,
   value,
   children,
-  onChange,
+  message,
+  onBlur,
+  onChangeText,
 }: PropsType) => {
   const [click, setClick] = useState<boolean>(false);
   return (
     <div className="w-full flex flex-col gap-2">
       <p className="text-medium16">{title}</p>
-      <div className="flex w-full items-center rounded-lg border border-gray300">
+      <div className="flex transition-all focus-within:border-gray950 w-full items-center rounded-lg border border-gray300">
         <input
+          onBlur={onBlur}
           value={value}
-          onChange={(e) => onChange && onChange(e.target.value)}
+          onChange={(e) => onChangeText && onChangeText(e.target.value)}
           type={password && !click ? "password" : "text"}
           placeholder={placeholder}
           className="p-4 placeholder:text-gray300 text-medium18 w-full"
@@ -42,6 +47,7 @@ export const Input = ({
         )}
         {children}
       </div>
+      <p className="text-medium14 text-red500">{message}</p>
     </div>
   );
 };
