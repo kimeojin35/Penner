@@ -1,51 +1,65 @@
 "use client";
 import { useState } from "react";
 import Email from "./Email";
-import EmailCode from "./EmailCode";
 import IdAndNickname from "./IdAndNickname";
 import Password from "./Password";
 import { Arrow } from "@/assets";
-import { Buttons } from "@/components";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { Buttons } from "@/components";
+import { signupHandler } from "@/apis/signup";
 
 function Signup() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      id: "",
+      nickname: "",
+      password: "",
+      passwordCheck: "",
+    },
+  });
+
   const router = useRouter();
   const [step, setStep] = useState<number>(0);
 
-  const nextStep = () => {
-    if (step < 3) setStep(step + 1);
-  };
-  const prevStep = () => {
-    if (step > 0) setStep(step - 1);
-  };
   const signupPage = [
     {
-      page: <Email onNext={nextStep} />,
+      page: <Email control={control} errors={errors} />,
       details: "이메일을 입력해주세요.",
-      buttonText: "인증코드 보내기",
     },
     {
-      page: <EmailCode onNext={nextStep} onBack={prevStep} />,
-      details: "이메일 인증코드를 입력해주세요.",
-      buttonText: "다음",
+      page: <IdAndNickname control={control} errors={errors} />,
+      details: "아이디와 닉네임을 입력해주세요.",
     },
     {
-      page: <IdAndNickname onNext={nextStep} onBack={prevStep} />,
-      details: "",
-      buttonText: "다음",
-    },
-    {
-      page: <Password onBack={prevStep} />,
+      page: <Password control={control} errors={errors} />,
       details: "비밀번호를 설정해주세요.",
-      buttonText: "다음",
     },
   ];
+
+  const nextPage = handleSubmit((data) => {
+    if (step < signupPage.length - 1) {
+      setStep(step + 1);
+    } else {
+      signupHandler(data, router);
+    }
+  });
+
+  const prevStep = () => {
+    if (step > 0) setStep(step - 1);
+    else router.back();
+  };
 
   return (
     <div className="flex items-center justify-center w-full py-10 min-h-screen bg-gray50 dark:bg-gray950">
       <div className="w-[540px] h-[700px] flex rounded-3xl flex-col gap-10 p-12 bg-white border border-gray200">
         <div
-          onClick={() => prevStep()}
+          onClick={prevStep}
           className="flex p-3 w-fit rounded-md border border-gray200 hover:bg-gray50 cursor-pointer"
         >
           <Arrow size={20} direction="left" className="text-gray600" />
@@ -57,7 +71,13 @@ function Signup() {
           </p>
         </div>
         <div className="w-full flex flex-col justify-between h-full">
-          {signupPage[step].page}
+          <div className="w-full flex flex-col gap-6">
+            {signupPage[step].page}
+          </div>
+          <Buttons
+            onClick={nextPage}
+            text={step < signupPage.length - 2 ? "다음" : "완료"}
+          />
         </div>
       </div>
     </div>
