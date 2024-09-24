@@ -27,9 +27,9 @@ export const ImageModal = ({ visible, onClose }: ModalPropsType) => {
         onClick={onClose}
         className="fixed inset-0 flex items-center justify-center w-full h-screen bg-white dark:bg-black dark:bg-opacity-20 bg-opacity-20 backdrop-blur-md"
       />
-      <div className="flex h-fit z-10 flex-col w-[608px] gap-8 p-6 bg-white dark:bg-gray900 dark:shadow-gray700 shadow-xl rounded-2xl fixed inset-0 m-auto">
+      <div className="flex h-fit z-10 flex-col w-[608px] gap-8 py-6 bg-white dark:bg-gray900 dark:shadow-gray700 shadow-xl rounded-2xl fixed inset-0 m-auto">
         <ImageSlider imgArr={arr} />
-        <div className="flex flex-col w-full gap-5">
+        <div className="flex flex-col w-full gap-5 px-6">
           <p className="w-full text-black text-semibold20 dark:text-white">
             아름다운 재질 홀로그램 무지개빛 컬러 보석 추상 배경 색상 스타일 패턴
             및 아티스트 하하 무슨말쓰지
@@ -84,7 +84,7 @@ export const ImageModal = ({ visible, onClose }: ModalPropsType) => {
             </div>
           </div>
         </div>
-        <p className="text-medium14 text-gray400">24.06.30 04:37</p>
+        <p className="text-medium14 px-6 text-gray400">24.06.30 04:37</p>
       </div>
     </div>
   );

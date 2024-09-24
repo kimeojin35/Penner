@@ -13,7 +13,7 @@ export const ImageSlider = ({ imgArr }: ImagePropsType) => {
   useEffect(() => {
     sliderInnerRef.current.style.transition = "400ms";
     sliderInnerRef.current.style.transform = `translateX(${
-      -560 * currentIndex
+      -608 * currentIndex
     }px)`;
   }, [currentIndex]);
 
@@ -21,16 +21,16 @@ export const ImageSlider = ({ imgArr }: ImagePropsType) => {
     setCurrentIndex(index);
   };
   return (
-    <div className="w-[560px] h-[560px] relative  overflow-hidden rounded-2xl flex">
+    <div className="w-[608px] h-[560px] relative overflow-hidden flex">
       <div
         ref={sliderInnerRef}
         className="flex"
-        style={{ width: `${560 * imgArr.length}px` }}
+        style={{ width: `${608 * imgArr.length}px` }}
       >
         {imgArr.map((img, index) => (
-          <div key={index} className="w-[560px] h-[560px]">
+          <div key={index} className="w-[608px] h-[560px]">
             <img
-              className="w-[560px] h-[560px] object-contain"
+              className="w-[608px] h-[560px] object-contain"
               src={img}
               alt={`이미지${index + 1}`}
             />
@@ -40,7 +40,7 @@ export const ImageSlider = ({ imgArr }: ImagePropsType) => {
       {currentIndex != 0 && (
         <div
           onClick={() => setCurrentIndex(currentIndex - 1)}
-          className="absolute top-0 bottom-0 left-0 flex items-center w-[50%] my-auto"
+          className="absolute top-0 bottom-0 left-0 flex items-center w-[50%] my-auto p-4"
         >
           <Arrow direction="left" className="text-black dark:text-white" />
         </div>
@@ -48,7 +48,7 @@ export const ImageSlider = ({ imgArr }: ImagePropsType) => {
       {currentIndex != imgArr.length - 1 && (
         <div
           onClick={() => setCurrentIndex(currentIndex + 1)}
-          className="absolute top-0 bottom-0 right-0 flex items-center justify-end w-[50%] my-auto"
+          className="absolute top-0 bottom-0 right-0 flex items-center justify-end w-[50%] my-auto p-4"
         >
           <Arrow direction="right" className="text-black dark:text-white" />
         </div>
