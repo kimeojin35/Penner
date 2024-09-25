@@ -17,7 +17,7 @@ export const signupHandler = async (
       .eq("email", email);
 
     if (existingUser && existingUser.length > 0) {
-      console.error("Email already exists.");
+      console.error("가입되어 있는 이메일입니다.");
       return;
     }
 
