@@ -3,55 +3,28 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 
 const supabase = createClient();
 
-export const signupHandler = async (
-  data: any,
-  router: string[] | AppRouterInstance
-) => {
-  try {
-    const { email, password, nickname } = data;
-
-    // 먼저 이메일이 이미 존재하는지 확인
-    const { data: existingUser, error: checkError } = await supabase
-      .from("user")
-      .select("email")
-      .eq("email", email);
-
-    if (existingUser && existingUser.length > 0) {
-      console.error("가입되어 있는 이메일입니다.");
-      return;
-    }
-
-    const { data: signupData, error: signupError } = await supabase.auth.signUp(
-      {
-        email,
-        password,
-      }
-    );
-
-    // if (signupError) {
-    //   console.error("Signup error:", signupError);
-    //   return;
+export const signupHandler = async (signupData: {
+  email: any;
+  id?: string;
+  nickname?: string;
+  password: any;
+  passwordCheck?: string;
+}) => {
+  const { data, error } = await supabase.auth.signUp({
+    email: signupData.email,
+    password: signupData.password,
+    // options: {
+    //   data: {
+    //     id: signupData.id,
+    //     nickname: signupData.nickname
+    //   }
     // }
+  });
 
-    // 새로운 유저 정보 추가
-    const user = signupData?.user;
+  if (error) {
+    console.error("회원가입 오류:", error.message);
+    return { error }; // 오류를 반환
+  }
 
-    // if (!user) {
-    //   console.error("No user returned after signup");
-    //   return;
-    // }
-
-    const { error: userInfoError } = await supabase.from("user").insert({
-      id: user?.id, // Supabase 유저 ID
-      email: email,
-      nickname: nickname,
-      password: password,
-    });
-
-    // if (userInfoError) {
-    //   console.error("Error inserting into userinfo:", userInfoError);
-    //   return;
-    // }
-    router.push("/login");
-  } catch (error) {}
+  return { data }; // 성공적으로 가입된 데이터 반환
 };
