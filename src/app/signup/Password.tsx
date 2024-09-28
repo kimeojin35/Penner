@@ -33,9 +33,9 @@ function Password({ control, errors }: SignupProps) {
         render={({ field: { onChange, value } }) => (
           <Input
             onChangeText={onChange}
-            placeholder="비밀번호"
+            placeholder="비밀번호 입력"
             value={value}
-            title="비밀번호 입력"
+            title="비밀번호"
             message={errors.password?.message}
             password
           />
@@ -52,9 +52,9 @@ function Password({ control, errors }: SignupProps) {
         render={({ field: { onChange, value } }) => (
           <Input
             onChangeText={onChange}
-            placeholder="비밀번호 확인"
+            placeholder="비밀번호 재입력"
             value={value}
-            title="비밀번호 재입력"
+            title="비밀번호 확인"
             message={errors.passwordCheck?.message}
             password
           />
