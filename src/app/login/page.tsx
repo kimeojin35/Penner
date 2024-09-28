@@ -1,12 +1,46 @@
 "use client";
+import { loginHandler } from "@/apis/login";
 import { Arrow } from "@/assets";
 import { Button, Buttons, Input } from "@/components";
-import { createClient } from "@/utils/supabase/server";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { Controller, useForm } from "react-hook-form";
 
 function Login() {
   const router = useRouter();
+
+  // react-hook-form 설정
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    setError, // setError로 커스텀 에러 메시지를 설정
+  } = useForm({
+    defaultValues: { email: "", password: "" },
+  });
+
+  // 로그인 폼 제출 핸들러
+  const onSubmit = async (data: { email: string; password: string }) => {
+    const { email, password } = data;
+
+    try {
+      const response = await loginHandler({ email, password });
+
+      if (response?.data) {
+        // 로그인 성공 시 필요한 처리 (예: 라우팅)
+        router.push("/my");
+      } else {
+        // 로그인 실패 시 setError로 커스텀 에러 메시지 설정
+        setError("password", {
+          type: "manual",
+          message: "이메일 또는 비밀번호가 일치하지 않습니다.",
+        });
+      }
+    } catch (error) {
+      console.error("An unexpected error occurred:", error);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center w-full py-10 min-h-screen bg-gray50 dark:bg-gray950">
       <div className="w-[540px] h-[700px] flex rounded-3xl flex-col gap-10 p-12 bg-white border border-gray200">
@@ -22,8 +56,44 @@ function Login() {
               </p>
             </div>
             <div className="flex flex-col w-full gap-6">
-              <Input placeholder="아이디" title="아이디" />
-              <Input password placeholder="비밀번호" title="비밀번호" />
+              {/* 이메일 입력 필드 */}
+              <Controller
+                name="email"
+                control={control}
+                rules={{
+                  required: "이메일을 입력해주세요.",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "올바른 이메일 형식을 입력해주세요.",
+                  },
+                }}
+                render={({ field: { onChange, value } }) => (
+                  <Input
+                    value={value}
+                    onChangeText={onChange}
+                    placeholder="이메일"
+                    title="이메일"
+                    message={errors.email?.message}
+                  />
+                )}
+              />
+              {/* 비밀번호 입력 필드 */}
+              <Controller
+                name="password"
+                control={control}
+                rules={{ required: "비밀번호를 입력해주세요." }}
+                render={({ field: { onChange, value } }) => (
+                  <Input
+                    value={value}
+                    onChangeText={onChange}
+                    password
+                    placeholder="비밀번호"
+                    title="비밀번호"
+                    message={errors.password?.message} // 에러 메시지 표시
+                  />
+                )}
+              />
+
               <div className="flex gap-1">
                 <p className="text-medium16 text-gray600">계정이 없으신가요?</p>
                 <p
@@ -35,7 +105,8 @@ function Login() {
               </div>
             </div>
           </div>
-          <Buttons onClick={() => router.push("/my")} text="로그인" />
+          {/* 로그인 버튼 */}
+          <Buttons onClick={handleSubmit(onSubmit)} text="로그인" />
         </div>
       </div>
     </div>

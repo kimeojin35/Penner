@@ -8,7 +8,9 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { Buttons } from "@/components";
 import { signupHandler } from "@/apis/signup";
+import { createClient } from "@/utils/supabase/client";
 
+const supabase = createClient();
 function Signup() {
   const {
     control,
@@ -42,12 +44,13 @@ function Signup() {
     },
   ];
 
-  const nextPage = handleSubmit((data) => {
+  const nextPage = handleSubmit(async (data) => {
     if (step < signupPage.length - 1) {
       setStep(step + 1);
     } else {
-      signupHandler(data, router);
+      signupHandler(data);
     }
+    console.log(data);
   });
 
   const prevStep = () => {
