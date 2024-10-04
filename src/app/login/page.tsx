@@ -1,12 +1,13 @@
 "use client";
 import { loginHandler } from "@/apis/login";
 import { Arrow } from "@/assets";
-import { Button, Buttons, Input } from "@/components";
+import { Button, Buttons, Input, ToastPopup } from "@/components";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 function Login() {
+  const [toast, setToast] = useState<boolean>(false);
   const router = useRouter();
 
   // react-hook-form 설정
@@ -27,7 +28,7 @@ function Login() {
       const response = await loginHandler({ email, password });
 
       if (response?.data) {
-        // 로그인 성공 시 필요한 처리 (예: 라우팅)
+        // 로그인 성공 시 마이페이지 이동
         router.push("/my");
       } else {
         // 로그인 실패 시 setError로 커스텀 에러 메시지 설정
@@ -37,7 +38,7 @@ function Login() {
         });
       }
     } catch (error) {
-      console.error("An unexpected error occurred:", error);
+      setToast(true);
     }
   };
 
@@ -109,6 +110,7 @@ function Login() {
           <Buttons onClick={handleSubmit(onSubmit)} text="로그인" />
         </div>
       </div>
+      {toast && <ToastPopup setToast={setToast} message={"⚠️ 로그인 실패"} />}
     </div>
   );
 }

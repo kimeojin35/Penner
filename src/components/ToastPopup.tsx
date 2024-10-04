@@ -1,17 +1,18 @@
+"use client";
 import { useEffect } from "react";
 
 interface ToastProps {
   message: string;
   setToast: any;
-  position: string;
-  type: "default" | "error" | "fail" | "success";
+  position?: "top" | "bottom";
+  type?: "default" | "error" | "fail" | "success";
 }
 
-export default function ToastPopup({
+export function ToastPopup({
   message,
   setToast,
-  position,
-  type,
+  position = "bottom",
+  type = "default",
 }: ToastProps) {
   const toastType = {
     default: "",

@@ -3,13 +3,16 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 
 const supabase = createClient();
 
-export const signupHandler = async (signupData: {
-  email: any;
-  id?: string;
-  nickname?: string;
-  password: any;
-  passwordCheck?: string;
-}) => {
+export const signupHandler = async (
+  router: AppRouterInstance,
+  signupData: {
+    email: any;
+    id?: string;
+    nickname?: string;
+    password: any;
+    passwordCheck?: string;
+  }
+) => {
   const { data, error } = await supabase.auth.signUp({
     email: signupData.email,
     password: signupData.password,
@@ -24,6 +27,8 @@ export const signupHandler = async (signupData: {
   if (error) {
     console.error("회원가입 오류:", error.message);
     return { error }; // 오류를 반환
+  } else {
+    router.push("/login");
   }
 
   return { data }; // 성공적으로 가입된 데이터 반환

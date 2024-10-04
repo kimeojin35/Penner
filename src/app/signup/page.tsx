@@ -48,7 +48,7 @@ function Signup() {
     if (step < signupPage.length - 1) {
       setStep(step + 1);
     } else {
-      signupHandler(data);
+      signupHandler(router, data);
     }
     console.log(data);
   });
