@@ -28,8 +28,9 @@ function Login() {
       const response = await loginHandler({ email, password });
 
       if (response?.data) {
+        setToast(true);
         // 로그인 성공 시 마이페이지 이동
-        router.push("/my");
+        // router.push("/my");
       } else {
         // 로그인 실패 시 setError로 커스텀 에러 메시지 설정
         setError("password", {
@@ -110,7 +111,9 @@ function Login() {
           <Buttons onClick={handleSubmit(onSubmit)} text="로그인" />
         </div>
       </div>
-      {toast && <ToastPopup setToast={setToast} message={"⚠️ 로그인 실패"} />}
+      {toast && (
+        <ToastPopup setToast={setToast} message={"👍 로그인에 성공했습니다."} />
+      )}
     </div>
   );
 }
