@@ -1,4 +1,5 @@
 "use client";
+import { Check } from "@/assets";
 import { useEffect } from "react";
 
 interface ToastProps {
@@ -15,10 +16,10 @@ export function ToastPopup({
   type = "default",
 }: ToastProps) {
   const toastType = {
-    default: "",
+    default: <Check />,
     error: "",
     fail: "",
-    success: "",
+    success: <Check />,
   };
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,13 +31,12 @@ export function ToastPopup({
   }, [setToast]);
   return (
     <div
-      className={`${
-        toastType[type]
-      } fixed z-20 p-4 flex w-full max-w-[400px] items-center justify-center rounded-lg bg-gray100 opacity-90 backdrop-blur-xl shadow-[0px_2px_8px_rgba(0,0,0,0.25)] ${
-        position === "top" ? "animate-toast-top" : "animate-toast-bottom"
-      }`}
+      className={`fixed animate-toast-bottom z-20 py-4 px-5 bottom-4 flex max-w-[400px] items-center justify-center rounded-full bg-gray800 shadow-md gap-4`}
     >
-      <p className="text-medium20 text-gray800">{message}</p>
+      <div className="rounded-full flex w-7 h-7 justify-center items-center bg-white">
+        {toastType[type]}
+      </div>
+      <p className="text-medium18 text-white">{message}</p>
     </div>
   );
 }

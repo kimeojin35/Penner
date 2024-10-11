@@ -1,6 +1,6 @@
 "use client";
 import { Hide, Show } from "@/assets";
-import React, { useState } from "react";
+import React, { HTMLInputAutoCompleteAttribute, useState } from "react";
 
 interface PropsType {
   placeholder?: string;
@@ -9,6 +9,7 @@ interface PropsType {
   value?: string;
   children?: React.ReactNode;
   message?: string;
+  autoComplete?: HTMLInputAutoCompleteAttribute;
   onBlur?: () => void;
   onChangeText?: (value: any) => void;
 }
@@ -20,6 +21,7 @@ export const Input = ({
   value,
   children,
   message,
+  autoComplete,
   onBlur,
   onChangeText,
 }: PropsType) => {
@@ -29,6 +31,7 @@ export const Input = ({
       <p className="text-medium16">{title}</p>
       <div className="flex transition-all focus-within:border-gray950 w-full items-center rounded-lg border border-gray300">
         <input
+          autoComplete={autoComplete}
           onBlur={onBlur}
           value={value}
           onChange={(e) => onChangeText && onChangeText(e.target.value)}

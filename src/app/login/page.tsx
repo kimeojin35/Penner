@@ -71,6 +71,7 @@ function Login() {
                 }}
                 render={({ field: { onChange, value } }) => (
                   <Input
+                    autoComplete="on"
                     value={value}
                     onChangeText={onChange}
                     placeholder="이메일"
@@ -86,6 +87,7 @@ function Login() {
                 rules={{ required: "비밀번호를 입력해주세요." }}
                 render={({ field: { onChange, value } }) => (
                   <Input
+                    autoComplete="on"
                     value={value}
                     onChangeText={onChange}
                     password
@@ -112,7 +114,7 @@ function Login() {
         </div>
       </div>
       {toast && (
-        <ToastPopup setToast={setToast} message={"👍 로그인에 성공했습니다."} />
+        <ToastPopup setToast={setToast} message="로그인에 성공했습니다." />
       )}
     </div>
   );
