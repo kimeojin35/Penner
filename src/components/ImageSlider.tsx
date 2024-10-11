@@ -30,7 +30,7 @@ export const ImageSlider = ({ imgArr }: ImagePropsType) => {
       >
         {imgArr.map((img, index) => (
           <div key={index} className="w-[608px] h-[560px]">
-            <Image
+            <img
               className="w-[608px] h-[560px] object-contain"
               src={img}
               alt={`이미지${index + 1}`}

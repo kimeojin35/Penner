@@ -90,7 +90,7 @@ export function Navbar() {
             ))}
             <div className="h-[1px] w-9 bg-gray200 dark:bg-gray800" />
             <div
-              onClick={() => router.push("/my")}
+              onClick={() => router.push("/login")}
               className="flex items-center cursor-pointer justify-center w-full py-4"
             >
               <User className="text-gray500" />
