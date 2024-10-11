@@ -1,5 +1,6 @@
 "use client";
 import { Arrow } from "@/assets";
+import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 
 interface ImagePropsType {
@@ -29,7 +30,7 @@ export const ImageSlider = ({ imgArr }: ImagePropsType) => {
       >
         {imgArr.map((img, index) => (
           <div key={index} className="w-[608px] h-[560px]">
-            <img
+            <Image
               className="w-[608px] h-[560px] object-contain"
               src={img}
               alt={`이미지${index + 1}`}
