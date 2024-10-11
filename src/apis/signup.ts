@@ -16,12 +16,12 @@ export const signupHandler = async (
   const { data, error } = await supabase.auth.signUp({
     email: signupData.email,
     password: signupData.password,
-    // options: {
-    //   data: {
-    //     id: signupData.id,
-    //     nickname: signupData.nickname
-    //   }
-    // }
+    options: {
+      data: {
+        id: signupData.id,
+        nickname: signupData.nickname,
+      },
+    },
   });
 
   if (error) {
