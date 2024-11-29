@@ -1,6 +1,5 @@
 "use client";
 import { Arrow } from "@/assets";
-import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 
 interface ImagePropsType {

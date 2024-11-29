@@ -5,7 +5,7 @@ import React, { HTMLInputAutoCompleteAttribute, useState } from "react";
 interface PropsType {
   placeholder?: string;
   password?: boolean;
-  title?: string;
+  title?: React.ReactNode;
   value?: string;
   children?: React.ReactNode;
   message?: string;
